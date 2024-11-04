@@ -3,12 +3,15 @@ class Calculator:
         return a + b
 
     def subtract(self, a, b):
-        return b - a
+        return a - b
 
     def multiply(self, a, b):
         result = 0
-        for i in range(b+1):
-            result = self.add(result, a)
+        if b < 0 and a < 0:
+            b *= (-1)
+            a *= (-1)
+        for i in range(a):
+            result = self.add(result, b)
         return result
 
     def divide(self, a, b):
@@ -16,12 +19,19 @@ class Calculator:
         while a > b:
             a = self.subtract(a, b)
             result += 1
-        return result
+        return result + 1
     
     def modulo(self, a, b):
-        while a <= b:
+        # result = a/b
+        
+        while a >= b:
+            # if c >=4:
+            #    return result + 1
             a = a-b
         return a
+            
+        
+
 
 # Example usage:
 if __name__ == "__main__":
